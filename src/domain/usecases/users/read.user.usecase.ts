@@ -7,8 +7,8 @@ class ReadUserUseCase implements IUseCase {
 
     constructor (private _repository: IUserRepository) {}
 
-    async execute(data: {userId: number}): Promise<IUserEntity | undefined> {
-        return await this._repository.readById(data.userId);
+    async execute(data: {idUser: number}): Promise<IUserEntity | undefined> {
+        return await this._repository.readById(data.idUser);
     }
 }
 

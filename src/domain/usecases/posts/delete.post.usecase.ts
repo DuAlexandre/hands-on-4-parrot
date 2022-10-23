@@ -6,8 +6,8 @@ class DeletePostUseCase implements IUseCase {
 
     constructor(private _repository: IPostRepository) {}
 
-    async execute(data: {postId: number}): Promise<void> {
-        return await this._repository.deleteById(data.postId);
+    async execute(data: {idPost: number}): Promise<void> {
+        return await this._repository.deleteById(data.idPost);
     }
 }
 
