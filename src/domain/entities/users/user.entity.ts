@@ -1,8 +1,10 @@
 export interface IUserEntity {
-    userId?: number,
+    idUser?: number,
     name: string,
     email: string,
-    apartment: string,
+    apartment: number,
     password: string,
-    photo: string
+    photo: string,
+    created_at: Date,
+    updated_at: Date
 }
