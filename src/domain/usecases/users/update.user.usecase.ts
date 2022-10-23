@@ -1,3 +1,4 @@
+import usersRepository, { UsersRepository } from "../../../adapters/repositories/users/users.repository";
 import { IUserEntity } from "../../entities/users/user.entity";
 import { IUserRepository } from "../../repositories/users/users.repository.interface";
 import { IUseCase } from "../usecase.interface";
@@ -10,3 +11,7 @@ class UpdateUserUseCase implements IUseCase {
         return await this._repository.updateById(data);
     }
 }
+
+export default new UpdateUserUseCase(
+    usersRepository
+)
