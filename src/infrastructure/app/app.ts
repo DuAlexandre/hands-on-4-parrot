@@ -5,9 +5,9 @@ import * as expressWinston from 'express-winston';
 import cors from 'cors';
 import debug from 'debug';
 
-import { CommonRoutesConfig } from '../../adapters/routes/common/common.routes.config';
-import { PostsRoutes } from '../../adapters/routes/posts/posts.routes.config';
-import { UsersRoutes } from '../../adapters/routes/users/users.routes.config';
+import { CommonRoutesConfig } from '../../adapters/apis/routes/common/common.routes.config';
+import { PostsRoutes } from '../../adapters/apis/routes/posts/posts.routes.config';
+import { UsersRoutes } from '../../adapters/apis/routes/users/users.routes.config';
 
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
