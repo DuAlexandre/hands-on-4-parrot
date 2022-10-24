@@ -8,8 +8,6 @@ export default function (post: any): IPostEntity | undefined {
     let postOne: IPostEntity = {
         idPost: post.idPost,
         content: post.content,
-        created_at: post.created_at,
-        updated_at: post.updated_at,
         user_id: post.user_id
     }
 

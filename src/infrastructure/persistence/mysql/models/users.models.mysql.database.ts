@@ -11,7 +11,5 @@ export default MysqlDatabase.getInstance().createModel('user', {
     email: Sequelize.DataTypes.STRING,
     apartment: Sequelize.DataTypes.INTEGER,
     password: Sequelize.DataTypes.STRING,
-    photo: Sequelize.DataTypes.STRING,
-    created_at: Sequelize.DataTypes.DATE,
-    updated_at: Sequelize.DataTypes.DATE
+    photo: Sequelize.DataTypes.STRING
 })
