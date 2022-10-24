@@ -47,3 +47,5 @@ server.listen(port, () => {
     });
     console.log(runningMessage);
 })
+
+export default app;
