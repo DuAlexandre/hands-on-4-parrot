@@ -13,7 +13,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             .get(usersController.listUsers)
             .post(usersController.createUser);
         
-        this.app.route(`/users/:id`)
+        this.app.route(`/users/:idUser`)
             .get(usersController.getUserById)
             .put(usersController.updateUser)
             .delete(usersController.deleteUser);

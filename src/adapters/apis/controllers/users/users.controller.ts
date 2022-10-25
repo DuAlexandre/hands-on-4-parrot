@@ -28,7 +28,8 @@ class UsersController {
     }
 
     async updateUser(req: express.Request, res: express.Response) {
-        const user = await updateUserUsecase.execute(req.body);
+        //let user = await readUserUsecase.execute({idUser: Number(req.params.idUser)});
+        let user = await updateUserUsecase.execute(req.body);
         res.status(200).send(user);
     }
 
