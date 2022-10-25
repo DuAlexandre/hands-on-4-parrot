@@ -6,6 +6,7 @@ import { IDatabaseModel } from "../../../infrastructure/persistence/databasemode
  import postEntitiesToModelsMysqlDatabase from "../../../infrastructure/persistence/mysql/helpers/posts/post.entitiesToModels.mysql.database";
  import { MysqlDatabase } from "../../../infrastructure/persistence/mysql/mysql.database";
  import postsModelsMysqlDatabase from "../../../infrastructure/persistence/mysql/models/posts.models.mysql.database";
+ import logger from "../../../infrastructure/logs/winston.logs";
 
 export class PostRepository implements IPostRepository {
 
@@ -17,35 +18,65 @@ export class PostRepository implements IPostRepository {
     async readById(reourceId: number): Promise<IPostEntity | undefined> {
         try {
             const postOne = await this._database.read(this._ModelPosts, reourceId);
+            logger.info(`Executado readById do PostRepository.`);
             return postModelsToEntitiesMysqlDatabase(postOne);
         }
-        catch(err) {
-            throw new Error((err as Error).message);
+        catch(error) {
+            logger.error('Erro no readById do PostRepository:', error);
+            throw new Error((error as Error).message);
         }
     }
 
     async create(resource: IPostEntity): Promise<IPostEntity> {
-        const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
-        const modelPost = await this._database.create(this._ModelPosts, postOne);
-        resource.idPost = modelPost.null;
-        return modelPost;
+        try {
+            const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
+            const modelPost = await this._database.create(this._ModelPosts, postOne);
+            resource.idPost = modelPost.null;
+            logger.info(`Executado create do PostRepository.`);
+            return modelPost;
+        } catch (error) {
+            logger.error('Erro no create do PostRepository:', error);
+            throw new Error((error as Error).message);
+        }
+        
     }
 
     async deleteById(resourceId: number): Promise<void> {
-        await this._database.delete(this._ModelPosts, {idPost: resourceId});
+        try {
+            await this._database.delete(this._ModelPosts, {idPost: resourceId});
+            logger.info(`Executado deleteById do PostRepository.`);
+        } catch (error) {
+            logger.error('Erro no deleteById do PostRepository:', error);
+            throw new Error((error as Error).message);
+        }
+        
     }
 
     async list(): Promise<IPostEntity[]> {
-        const posts = await this._database.list(this._ModelPosts);
-        const postList = posts.map(postModelsToEntitiesMysqlDatabase);
-        return postList;
+        try {
+            const posts = await this._database.list(this._ModelPosts);
+            const postList = posts.map(postModelsToEntitiesMysqlDatabase);
+            logger.info(`Executado list do PostRepository.`);
+            return postList;
+        } catch (error) {
+            logger.error('Erro no list do PostRepository:', error);
+            throw new Error((error as Error).message);
+        }
+       
     }
 
     async updateById(resource: IPostEntity): Promise<IPostEntity | undefined> {
-        let modelPost = await this._database.read(this._ModelPosts, resource.idPost!);
-        const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
-        await this._database.update(modelPost, postOne);
-        return resource;
+        try {
+            let modelPost = await this._database.read(this._ModelPosts, resource.idPost!);
+            const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
+            await this._database.update(modelPost, postOne);
+            logger.info(`Executado updateById do PostRepository.`);
+            return resource;
+        } catch (error) {
+            logger.error('Erro no updateById do PostRepository:', error);
+            throw new Error((error as Error).message);
+        }
+        
     }
     
 }
