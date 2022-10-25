@@ -1,6 +1,7 @@
 import { CommonRoutesConfig } from "../common/common.routes.config";
 import express from 'express';
 import usersController from "../../controllers/users/users.controller";
+import usersMiddleware from "../../middlewares/users/users.middleware";
 
 export class UsersRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {
@@ -11,12 +12,25 @@ export class UsersRoutes extends CommonRoutesConfig {
 
         this.app.route(`/users`)
             .get(usersController.listUsers)
-            .post(usersController.createUser);
+            .post(
+                usersMiddleware.createValidator,
+                usersController.createUser
+                );
         
         this.app.route(`/users/:idUser`)
-            .get(usersController.getUserById)
-            .put(usersController.updateUser)
-            .delete(usersController.deleteUser);
+            .get(
+                usersMiddleware.idValidator,
+                usersController.getUserById
+                )
+            .put(
+                usersMiddleware.idValidator,
+                usersMiddleware.updateValidator,
+                usersController.updateUser
+                )
+            .delete(
+                usersMiddleware.idValidator,
+                usersController.deleteUser
+                );
 
         return this.app;
     }
