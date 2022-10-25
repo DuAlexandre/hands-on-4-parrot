@@ -11,7 +11,13 @@ export default {
             content: Sequelize.DataTypes.STRING,
             createdAt: Sequelize.DataTypes.DATE,
             updatedAt: Sequelize.DataTypes.DATE,
-            user_id: Sequelize.DataTypes.INTEGER
+            user_id: {
+                type: Sequelize.DataTypes.INTEGER,
+                references: {
+                    model: { tableName: 'users' },
+                    key: 'idUser'
+                }
+            }        
         });
     },
 

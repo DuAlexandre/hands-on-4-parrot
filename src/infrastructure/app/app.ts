@@ -8,6 +8,7 @@ import debug from 'debug';
 import { CommonRoutesConfig } from '../../adapters/apis/routes/common/common.routes.config';
 import { PostsRoutes } from '../../adapters/apis/routes/posts/posts.routes.config';
 import { UsersRoutes } from '../../adapters/apis/routes/users/users.routes.config';
+import handleError from '../config/handle.error';
 
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
@@ -35,6 +36,8 @@ app.use(expressWinston.logger(loggerOptions));
 
 routes.push(new UsersRoutes(app));
 routes.push(new PostsRoutes(app));
+
+app.use(handleError.hasError);
 
 const runningMessage = `Servidor rodando na porta ${port}`;
 app.get('/', (req: express.Request, res: express.Response) => {
