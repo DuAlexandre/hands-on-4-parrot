@@ -13,7 +13,7 @@ export class PostsRoutes extends CommonRoutesConfig {
             .get(postsController.listPosts)
             .post(postsController.createPost);
 
-        this.app.route(`/posts/:id`)
+        this.app.route(`/posts/:idPost`)
             .get(postsController.getPostById)
             .put(postsController.updatePost)
             .delete(postsController.deletePost);

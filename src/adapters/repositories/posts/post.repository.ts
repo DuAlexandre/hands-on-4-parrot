@@ -16,8 +16,8 @@ export class PostRepository implements IPostRepository {
 
     async readById(reourceId: number): Promise<IPostEntity | undefined> {
         try {
-            const post = await this._database.read(this._ModelPosts, reourceId);
-            return postModelsToEntitiesMysqlDatabase(post);
+            const postOne = await this._database.read(this._ModelPosts, reourceId);
+            return postModelsToEntitiesMysqlDatabase(postOne);
         }
         catch(err) {
             throw new Error((err as Error).message);
@@ -25,10 +25,10 @@ export class PostRepository implements IPostRepository {
     }
 
     async create(resource: IPostEntity): Promise<IPostEntity> {
-        const post = postEntitiesToModelsMysqlDatabase(resource);
-        const modelPost = await this._database.create(this._ModelPosts, post);
+        const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
+        const modelPost = await this._database.create(this._ModelPosts, postOne);
         resource.idPost = modelPost.null;
-        return resource;
+        return modelPost;
     }
 
     async deleteById(resourceId: number): Promise<void> {
@@ -43,8 +43,8 @@ export class PostRepository implements IPostRepository {
 
     async updateById(resource: IPostEntity): Promise<IPostEntity | undefined> {
         let modelPost = await this._database.read(this._ModelPosts, resource.idPost!);
-        const postUpdate = postEntitiesToModelsMysqlDatabase(resource);
-        await this._database.update(modelPost, postUpdate);
+        const { postOne } = postEntitiesToModelsMysqlDatabase(resource);
+        await this._database.update(modelPost, postOne);
         return resource;
     }
     
