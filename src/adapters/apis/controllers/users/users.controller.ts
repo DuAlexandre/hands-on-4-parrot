@@ -7,6 +7,7 @@ import updateUserUsecase from "../../../../domain/usecases/users/update.user.use
 import deleteUserUsecase from "../../../../domain/usecases/users/delete.user.usecase";
 import logger from "../../../../infrastructure/logs/winston.logs";
 import constantsConfig from "../../../../infrastructure/config/constants.config";
+import bcrypt from 'bcrypt';
 
 const log: debug.IDebugger = debug('app:users-controller');
 
@@ -37,7 +38,9 @@ class UsersController {
 
     async createUser(req: express.Request, res: express.Response) {
         try {
-            const user = await createUserUsecase.execute(req.body);
+            const { name, email, apartment, password, photo } = req.body;
+            const EncryPassord = bcrypt.hashSync(password, 10);
+            const user = await createUserUsecase.execute({ name, email, apartment, password: EncryPassord, photo });
             log(user);
             res.status(201).send(user);
         } catch (error) {
@@ -49,7 +52,9 @@ class UsersController {
 
     async updateUser(req: express.Request, res: express.Response) {
         try {
-            let user = await updateUserUsecase.execute(req.body);
+            const { idUser, name, email, apartment, password, photo } = req.body;
+            const EncryPassord = bcrypt.hashSync(password, 10);
+            let user = await updateUserUsecase.execute({ idUser, name, email, apartment, password: EncryPassord, photo });
             res.status(200).send(user);
         } catch (error) {
             logger.error('Erro no updateUser do UsersController:', error);

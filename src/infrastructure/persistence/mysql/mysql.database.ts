@@ -1,6 +1,7 @@
 import * as Sequelize from 'sequelize';
 import databaseConfig from '../../config/database.config';
 import { IDatabaseModel } from '../databasemodel.interface';
+import bcrypt from 'bcrypt';
 
 export class MysqlDatabase implements IDatabaseModel {
     private static _instance: MysqlDatabase;
@@ -61,6 +62,18 @@ export class MysqlDatabase implements IDatabaseModel {
             return model.findByPk(dataId, includes);
         } catch(err){
             throw new Error((err as Error).message);
+        }
+    }
+
+    login(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, email: string): Promise<any> {
+        try {
+            return model.findOne({
+                where: {
+                    email
+                }
+            })
+        } catch (error) {
+            throw new Error((error as Error).message);
         }
     }
 
