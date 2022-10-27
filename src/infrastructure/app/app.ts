@@ -8,6 +8,7 @@ import debug from 'debug';
 import { CommonRoutesConfig } from '../../adapters/apis/routes/common/common.routes.config';
 import { PostsRoutes } from '../../adapters/apis/routes/posts/posts.routes.config';
 import { UsersRoutes } from '../../adapters/apis/routes/users/users.routes.config';
+import { LoginRoutes } from '../../adapters/apis/routes/login/login.routes.config';
 import handleError from '../config/handle.error';
 
 const app: express.Application = express();
@@ -36,6 +37,7 @@ app.use(expressWinston.logger(loggerOptions));
 
 routes.push(new UsersRoutes(app));
 routes.push(new PostsRoutes(app));
+routes.push(new LoginRoutes(app));
 
 app.use(handleError.hasError);
 
