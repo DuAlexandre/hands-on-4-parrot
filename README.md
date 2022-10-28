@@ -53,9 +53,9 @@ A rede social Parrot é um sistema white label (ou seja, um sistema modelo criad
 * MySQL;
 * JWT;
 * Jest;
-* Arquitetura Limpa
-* Implementação de princípios SOLID
-* Testes Automatizados
+* Arquitetura Limpa;
+* Implementação de princípios SOLID;
+* Testes Automatizados;
 
 <br>
 
@@ -145,7 +145,7 @@ Projeto desenvolvido por:
 <table>
   <tr>
     <td align="center">
-      <a href="https://www.linkedin.com/in/eduardo-quaresimin-santos-brazilian-%E2%80%93-italian-citizenship-838220182/">
+      <a target="_blank" href="https://www.linkedin.com/in/eduardo-quaresimin-santos-brazilian-%E2%80%93-italian-citizenship-838220182/">
         <img src="https://avatars.githubusercontent.com/u/109425683?v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Eduardo Quaresimin</b>
@@ -154,7 +154,7 @@ Projeto desenvolvido por:
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/eduardo-alexandre025/">
+      <a target="_blank" href="https://www.linkedin.com/in/eduardo-alexandre025/">
         <img src="https://avatars.githubusercontent.com/u/95940707?s=96&v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Eduardo Alexandre</b>
@@ -163,7 +163,7 @@ Projeto desenvolvido por:
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/johnnatan-gomes-b0363584/">
+      <a target="_blank" href="https://www.linkedin.com/in/johnnatan-gomes-b0363584/">
         <img src="https://avatars.githubusercontent.com/u/109382819?v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Johnnatan Rodrigues</b>
@@ -172,7 +172,7 @@ Projeto desenvolvido por:
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/keuwey/">
+      <a target="_blank" href="https://www.linkedin.com/in/keuwey/">
         <img src="https://avatars.githubusercontent.com/u/73517606?v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Kevin Halley</b>
@@ -181,7 +181,7 @@ Projeto desenvolvido por:
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/laura-santos-766862244/">
+      <a target="_blank" href="https://www.linkedin.com/in/laura-santos-766862244/">
         <img src="https://avatars.githubusercontent.com/u/104779345?v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Laura Santos</b>
