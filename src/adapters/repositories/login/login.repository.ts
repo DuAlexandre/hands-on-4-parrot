@@ -3,10 +3,9 @@ import { ILoginRepository } from "../../../domain/repositories/login/login.repos
 import { IDatabaseModel } from "../../../infrastructure/persistence/databasemodel.interface";
 import * as Sequelize from 'sequelize';
 import loginModelsToEntitiesMysqlDatabase from "../../../infrastructure/persistence/mysql/helpers/login/login.modelsToEntities.mysql.database";
-import logger from "../../../infrastructure/logs/winston.logs";
 import { MysqlDatabase } from "../../../infrastructure/persistence/mysql/mysql.database";
 import usersModelsMysqlDatabase from "../../../infrastructure/persistence/mysql/models/users.models.mysql.database";
-
+import logger from "../../../infrastructure/logs/winston.logs";
 
 export class LoginRepository implements ILoginRepository {
 
@@ -18,6 +17,7 @@ export class LoginRepository implements ILoginRepository {
     async loginByEmail(resourceEmail: string): Promise<ILoginEntity> {
         try {
             const loginOne = await this._database.login(this._ModelUsers, resourceEmail)
+            logger.info('Login realizado');
             return loginModelsToEntitiesMysqlDatabase(loginOne)
         } catch (error) {
             logger.error('Erro no login do LoginRepository:', error);

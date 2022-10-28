@@ -1,6 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
+import logger from '../../../../infrastructure/logs/winston.logs';
 
 class AuthMiddleware {
     async checkAuth(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -25,6 +26,7 @@ class AuthMiddleware {
 
 
         } catch (error) {
+            logger.error("Erro no authMiddleware", error);
             res.status(401).send({
                 error: `Usuario nao autenticado.`
             });
