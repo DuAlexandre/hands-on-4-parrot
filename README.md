@@ -149,6 +149,7 @@ Projeto desenvolvido por:
         <img src="https://avatars.githubusercontent.com/u/109425683?v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Eduardo Quaresimin</b>
+          <p>Back-End</p>
         </sub>
       </a>
     </td>
@@ -157,8 +158,37 @@ Projeto desenvolvido por:
         <img src="https://avatars.githubusercontent.com/u/95940707?s=96&v=4" width="100px;" alt=""/><br>
         <sub>
           <b>Eduardo Alexandre</b>
+           <p>Back-End</p>
         </sub>
       </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/johnnatan-gomes-b0363584/">
+        <img src="https://avatars.githubusercontent.com/u/109382819?v=4" width="100px;" alt=""/><br>
+        <sub>
+          <b>Johnnatan Rodrigues</b>
+           <p>Front-End</p>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/keuwey/">
+        <img src="https://avatars.githubusercontent.com/u/73517606?v=4" width="100px;" alt=""/><br>
+        <sub>
+          <b>Kevin Halley</b>
+           <p>Front-End</p>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/laura-santos-766862244/">
+        <img src="https://avatars.githubusercontent.com/u/104779345?v=4" width="100px;" alt=""/><br>
+        <sub>
+          <b>Laura Santos</b>
+           <p>Front-End</p>
+        </sub>
+      </a>
+    </td>
   </tr>
 </table>
 
