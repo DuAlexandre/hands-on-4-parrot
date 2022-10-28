@@ -1,4 +1,4 @@
-import  express  from "express";
+import express  from "express";
 import debug from "debug";
 import listUserUsecase from "../../../../domain/usecases/users/list.user.usecase";
 import readUserUsecase from "../../../../domain/usecases/users/read.user.usecase";

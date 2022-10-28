@@ -1,4 +1,4 @@
-import  express from "express";
+import express from "express";
 import loginUsecase from "../../../../domain/usecases/login/login.usecase";
 import constantsConfig from "../../../../infrastructure/config/constants.config";
 import logger from "../../../../infrastructure/logs/winston.logs";
